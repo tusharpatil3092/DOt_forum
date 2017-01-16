@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xc="http://www.ibm.com/xsp/custom"
+	xmlns:xe="http://www.ibm.com/xsp/coreex">
+	<xp:div styleClass="nq_heading">
+		<xp:label value="Chats" id="label1"></xp:label>
+		<xp:inputText id="members" style="display:none">
+		<xp:eventHandler event="onchange" submit="true" refreshMode="complete">
+			<xp:this.action>
+
+				<xp:actionGroup>
+
+
+
+
+					<xp:openPage>
+						<xp:this.name><![CDATA[#{javascript:var str=@Name("[CN]", @UserName());
+var str1= str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+
+var person_name=getComponent("members").getValue();
+var str2=person_name.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+var str3=str2.replace('/dot','');
+
+var chat_between1= str1+"|"+str3;
+var chat_between2= str3+"|"+str1;
+
+if(str1==str3){
+return "home.xsp?page=chats";
+}
+else{
+
+var view:NotesView = database.getView("chats");
+var doc:NotesDocument = view.getFirstDocument();
+while (doc != null) {
+var between=doc.getItemValueString("between");
+if(between==chat_between1 || between==chat_between2){
+return "home.xsp?page=chat&documentId="+doc.getUniversalID();
+}
+var tmpdoc = view.getNextDocument(doc);
+doc.recycle();
+doc = tmpdoc;
+}
+
+
+var p_chat_doc:NotesDocument=database.createDocument();
+p_chat_doc.replaceItemValue("Form","p_chat");
+p_chat_doc.replaceItemValue("pc_initiated_with",str3);
+p_chat_doc.replaceItemValue("between",chat_between1);
+p_chat_doc.replaceItemValue("p_created_by",str1);
+p_chat_doc.save();
+var pc_id=p_chat_doc.getUniversalID();
+return "home.xsp?page=chat&documentId="+pc_id;
+}}]]></xp:this.name>
+					</xp:openPage>
+				</xp:actionGroup>
+			</xp:this.action></xp:eventHandler></xp:inputText>
+		<xp:div style="float:right; margin-right:10%">
+		<xe:namePicker id="namePicker1" for="members"
+			pickerIcon="/1484155206_add.png" >
+			<xe:this.dataProvider>
+				<xe:dominoNABNamePicker></xe:dominoNABNamePicker>
+			</xe:this.dataProvider>
+		</xe:namePicker>
+		<xp:label value="New Chat" id="label2"
+			style="color:rgb(0,128,255);text-decoration:underline;font-size:10.5pt;margin-left:5.0px">
+		</xp:label>
+		</xp:div>
+	</xp:div>
+	<xp:div style="overflow-y:scroll;height:93.7%;width:96.5%;margin-left:15.0px">
+		
+		
+		<xp:repeat id="repeat1" rows="30" first="0" var="pc"
+			indexVar="i">
+			<xp:this.value><![CDATA[#{javascript:var v:NotesView=database.getView("chats");
+var ve:NotesViewEntryCollection=v.getAllEntries();
+return ve;}]]></xp:this.value>
+			<xp:div
+				style="cursor:pointer;background-color: #f2f2f2; width: 90%; height: 70px; margin-top: 10px; margin-left: 5%; border-radius: 10px; cursor: pointer;box-shadow: 10px 10px 20px #888888;"
+				id="div1">
+				<xp:this.rendered><![CDATA[#{javascript:var str=@Name("[CN]", @UserName());
+var str1= str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+
+var doc:NotesDocument=pc.getDocument();
+var between=doc.getItemValueString("between");
+
+var r=@Right(between,"|");
+var l=@Left(between,"|");
+
+if(str1==r || str1==l){
+return true;
+}
+else{
+return false;
+}}]]></xp:this.rendered>
+				<xp:table style="width:100%;height:100%">
+					<xp:tr>
+						<xp:td style="width:13%;padding-left:15px">
+							<i class="fa fa-user-circle fa-5x"></i>
+						</xp:td>
+
+						<xp:td style="width:60%;padding-left:20px">
+							<xp:label id="label3"
+								style="font-size:20px">
+								<xp:this.value><![CDATA[#{javascript:var str=@Name("[CN]", @UserName());
+var str1= str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+
+var doc:NotesDocument=pc.getDocument();
+var between=doc.getItemValueString("between");
+
+var r=@Right(between,"|");
+var l=@Left(between,"|");
+
+if(str1==r){
+return l;
+}
+else{
+return r;
+}}]]></xp:this.value>
+							</xp:label>
+						</xp:td>
+
+						<xp:td>
+							<xp:label id="label4"
+								style="float:right;padding-right:20px;padding-top:30px;font-size:15px">
+								<xp:this.value><![CDATA[#{javascript:var doc:NotesDocument=pc.getDocument();
+return doc.getCreated();}]]></xp:this.value>
+							</xp:label>
+						</xp:td>
+					</xp:tr>
+				</xp:table>
+				<xp:eventHandler event="onclick" submit="true"
+					refreshMode="complete">
+					<xp:this.action>
+						<xp:openPage>
+							<xp:this.name><![CDATA[#{javascript:var doc:NotesDocument=pc.getDocument();
+return "home.xsp?page=chat&documentId="+doc.getUniversalID();}]]></xp:this.name>
+						</xp:openPage>
+					</xp:this.action>
+				</xp:eventHandler>
+			</xp:div>
+		</xp:repeat>
+	</xp:div>
+	
+</xp:view>

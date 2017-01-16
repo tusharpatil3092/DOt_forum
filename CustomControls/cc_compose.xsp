@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.data>
+		<xp:dominoDocument var="document4" formName="memo">
+		</xp:dominoDocument>
+	</xp:this.data>
+	<xp:div styleClass="nq_heading">
+		<xp:label value="New Mail" id="label1"></xp:label>
+	</xp:div>
+	<xp:div
+		style="background-color:#f2f2f2;width:96.3%;margin-left:16px;height:93.55%">
+		<xp:table style="width:100%;height:100%">
+			<xp:tr style="width:100%;height:10%">
+				<xp:td>
+					<xp:label value="To:" id="label2"
+						style="font-size:12pt;margin-left:2%;margin-right:7%">
+					</xp:label>
+					<xp:inputTextarea id="inputTextarea1"
+						style="width:85%;height:45%" value="#{document4.SendTo}"
+						multipleSeparator="," multipleTrim="true">
+					</xp:inputTextarea>
+				</xp:td>
+			</xp:tr>
+			<xp:tr style="width:100%;height:10%">
+				<xp:td>
+					<xp:label value="Subject" id="label3"
+						style="font-size:12pt;margin-left:2%;margin-right:3%">
+					</xp:label>
+					<xp:inputText id="inputText2"
+						style="width:85%;height:45%" value="#{document4.Subject}">
+					</xp:inputText>
+				</xp:td>
+			</xp:tr>
+			<xp:tr style="width:100%;height:72%">
+				<xp:td>
+					<xp:inputRichText id="inputRichText1"
+						style="height:100%" value="#{document4.Body}">
+					</xp:inputRichText>
+				</xp:td>
+			</xp:tr>
+			<xp:tr style="width:100%;height:12%">
+				<xp:td>
+					<xp:label value="Send" id="label4"
+						style="font-size:18pt;margin-left:2%;margin-right:78%;cursor:pointer">
+					<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
+						<xp:this.action>
+
+							<xp:actionGroup>
+
+								<xp:saveDocument var="document4"></xp:saveDocument>
+
+
+
+
+
+
+
+
+								<xp:executeScript>
+									<xp:this.script><![CDATA[#{javascript:var doc:NotesDocument=document4.getDocument();
+var doc_id=doc.getUniversalID();
+doc.send(false);
+//view.postScript("alert('"+doc_id+"')");
+}]]></xp:this.script>
+								</xp:executeScript>
+							</xp:actionGroup>
+						</xp:this.action></xp:eventHandler></xp:label>
+					<xp:label value="Discard" id="label5"
+						style="font-size:14pt;cursor:pointer">
+					</xp:label>
+
+				</xp:td>
+			</xp:tr>
+		</xp:table>
+	</xp:div>
+
+</xp:view>

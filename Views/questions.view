@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
+ replicaid='652580AA001F918C'>
+<noteinfo noteid='23e' unid='DC6ACB9066716249652580AA0032806B' sequence='1'>
+<created><datetime>20170116T144136,75+0530</datetime></created>
+<modified><datetime>20170116T144136,77+0530</datetime></modified>
+<revised><datetime>20170116T144136,76+0530</datetime></revised>
+<lastaccessed><datetime>20170116T144136,77+0530</datetime></lastaccessed>
+<addedtofile><datetime>20170116T144136,77+0530</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=tushar jayawant patil/O=dot</name></updatedby>
+<wassignedby><name>CN=tushar jayawant patil/O=dot</name></wassignedby>
+<item name='$FormulaClass' sign='true'><text>1</text></item>
+<item name='$TITLE' sign='true'><text>questions</text></item>
+<item name='$Index' sign='true'><text/></item>
+<item name='$Formula' summary='true' sign='true'><formula compiled='true'>
+eAAFAEwARwAHAAUACAAKAAcACgAJAAQAdGl0bGVjYXRlZ29yeWNyZWF0ZWRfYnljb21tZW50cmVw
+bGllZF9ieSRDb25mbGljdCRSRUYABAAEAAAAHAAFAAQAZm9ybQEACABxdWVzdGlvbgoCAwAHAAoA
+BAAJTDFT
+</formula></item>
+<item name='$Collation' summary='true'>
+<rawitemdata type='2'>
+BgAAAABE
+</rawitemdata></item>
+<item name='$ViewFormat' summary='true' sign='true'>
+<rawitemdata type='5'>
+AQAGAA0ACAAAAFZDAAAFAAUAAAAAAFAAAQAACgAAAAAAAAAAAAICAAAAVkMAAAgACAAAAAAAUAAB
+AAAKAAAAAAAAAAAAAgIAAABWQwAAAgALAA4ACgBQAAEAAAoAAAAAAAAAAAACAgAAAFZDAAAKAAoA
+AAAAAFAAAQAACgAAAAAAAAAAAAICAAAAVkMAAAcACAAAAAAAUAABAAAKAAAAAAAAAAAAAgIAAABW
+QwAACgAKAAAAAABQAAEAAAoAAAAAAAAAAAACAgAAAHRpdGxldGl0bGVjYXRlZ29yeWNhdGVnb3J5
+JDhkZXNjcmlwdGlvbg4AAgAMAAIAJDiSAAMAAQUBAAQAf0Ew/2NyZWF0ZWRfYnljcmVhdGVkIGJ5
+Y29tbWVudGNvbW1lbnRzcmVwbGllZF9ieXJlcGxpZWRfYnkmAAEAAAABAQAJAQAACgEBDgoAAAEA
+rSsBAAEAAQAAAAAAAAAAAFdDAQEACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAA
+AAAAAABXQwEBAAkAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAD//wAAAAAAAAAAAAAAAAAAV0MBAQAJ
+AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAAAAAAAAAAAAAAAFdDAQEACQAAAAAAAAAAAAAA
+AAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABXQwEBAAkAAAAAAAAAAAAAAAAAAAAAAAAEAAAA
+AAD//wAAAAAAAAAAAAAAAAAAV0MBAQAJAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAAAAAA
+AAAAAAAAAEIAEAAAAAEA////AAUA////AAEAAAAAAAAAAAAAAAAAAQD///8AAQD///8AAAABAAAA
+AAABAAAAAAABAAAAAAAAAAgAAAAAAAEA
+</rawitemdata></item>
+<item name='$Comment' sign='true'><text/></item>
+<item name='$Flags'><text>PY</text></item>
+<item name='$DesignerVersion'><text>8.5.3</text></item></note>
+

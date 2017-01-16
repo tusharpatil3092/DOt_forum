@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xp:this.data>
+		<xp:dominoDocument var="document1" formName="question"
+			action="openDocument">
+
+		</xp:dominoDocument>
+
+
+
+
+		<xp:dominoDocument var="document2" formName="reply">
+			<xp:this.parentId><![CDATA[#{javascript:var doc_id=context.getUrlParameter("documentId");
+return doc_id;}]]></xp:this.parentId>
+		</xp:dominoDocument>
+	</xp:this.data>
+
+	<xp:div styleClass="nq_heading">
+		<i class="fa fa-arrow-left fa-1x"
+			style="color: rgb(128,128,255)">
+		</i>
+		<xp:link escape="true" id="link1" text="back"
+			style="margin-left:5.0px">
+			<xp:eventHandler event="onclick" submit="true"
+				refreshMode="complete">
+				<xp:this.action>
+					<xp:actionGroup>
+						<xp:openPage>
+							<xp:this.name><![CDATA[#{javascript:return "home.xsp?page=all_question"}]]></xp:this.name>
+						</xp:openPage>
+					</xp:actionGroup>
+				</xp:this.action>
+			</xp:eventHandler>
+		</xp:link>
+	</xp:div>
+	<xp:div style="overflow-y:scroll; height: 81.2%;padding-bottom:10px">
+		<xp:div
+			style="background-color: #f2f2f2; width: 95%; height: 90px;margin-top: 10px; margin-left: 3%;border-top-right-radius:1em;
+border-top-left-radius:1em;">
+			<xp:table>
+				<xp:tr style="color:#008ae6">
+					<xp:td style="width: 81%"></xp:td>
+					<xp:td style="padding-top:5px">
+						<i class="fa fa-user-o"
+							style="margin-right:3px">
+						</i>
+						<xp:label id="label4">
+							<xp:this.value>
+								<![CDATA[#{javascript:var doc_id=context.getUrlParameter("documentId");
+					var doc:NotesDocument=database.getDocumentByUNID(doc_id);
+					var str=doc.getItemValueString("created_by");
+					return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+					//return document1.getItemValueString("title");}]]>
+							</xp:this.value>
+						</xp:label>
+					</xp:td>
+				</xp:tr>
+
+				<xp:tr>
+					<xp:td style="float:left">
+						<xp:label value="Title:" id="label1"
+							style="padding-left: 10px; font-size:15px; margin-right:41px">
+						</xp:label>
+					</xp:td>
+					<xp:td
+						style="float:left;font-style:italic;font-style:italic;font-weight:bold; color:#008ae6">
+						<xp:inputText id="inputText1"
+							value="#{document1.title}">
+						</xp:inputText>
+					</xp:td>
+				</xp:tr>
+
+				<xp:tr>
+					<xp:td style="float:left">
+						<xp:label value="Category:" id="label3"
+							style="padding-left: 10px; font-size:13.5px;margin-right:10px">
+						</xp:label>
+					</xp:td>
+					<xp:td style="float:left;font-style:italic">
+						<xp:label id="label2"
+							style="font-style:italic;font-weight:bold; color:#008ae6 ">
+							<xp:this.value>
+								<![CDATA[#{javascript:var doc_id=context.getUrlParameter("documentId");
+					var doc:NotesDocument=database.getDocumentByUNID(doc_id);
+					return doc.getItemValueString("category");}]]>
+							</xp:this.value>
+						</xp:label>
+					</xp:td>
+				</xp:tr>
+
+				<xp:tr>
+					<xp:td></xp:td>
+					<xp:td>
+						<xp:label value="Edit" id="label5"
+							style="margin-left:30px;cursor:pointer;text-decoration:underline;color:rgb(128,128,255);font-size:10pt">
+							<xp:this.rendered><![CDATA[#{javascript:var user=@Name("[CN]",@UserName());
+				var author=document1.getItemValueString("created_by");
+				var act=context.getUrlParameter("action");
+				if(user!=author || act=="editDocument"){
+				return false;
+				}
+				else {
+				return true;
+				}}]]>
+							</xp:this.rendered>
+							<xp:eventHandler event="onclick"
+								submit="true" refreshMode="partial">
+								<xp:this.action>
+									<xp:openPage>
+										<xp:this.name><![CDATA[#{javascript:var doc_id = context.getUrlParameter("documentId");
+							return "home.xsp?page=question_details&documentId="+doc_id+"&action=editDocument"}]]>
+										</xp:this.name>
+									</xp:openPage>
+								</xp:this.action>
+							</xp:eventHandler>
+							<xp:eventHandler event="onkeypress"
+								submit="true" refreshMode="partial">
+							</xp:eventHandler>
+						</xp:label>
+						<xp:label value="Cancle" id="label6"
+							style="margin-left:30px;cursor:pointer;text-decoration:underline;color:rgb(128,128,255);font-size:10pt">
+							<xp:this.rendered><![CDATA[#{javascript:var act=context.getUrlParameter("action");
+if(act=="editDocument"){
+return true;
+}
+else{
+return false;
+}}]]></xp:this.rendered>
+							<xp:eventHandler event="onclick"
+								submit="true" refreshMode="complete">
+								<xp:this.action>
+									<xp:openPage>
+										<xp:this.name><![CDATA[#{javascript:var doc_id = context.getUrlParameter("documentId");
+return "home.xsp?page=question_details&documentId="+doc_id;}]]></xp:this.name>
+									</xp:openPage>
+								</xp:this.action>
+							</xp:eventHandler>
+						</xp:label>
+						<xp:label value="Save" id="label7"
+							style="margin-left:15px;cursor:pointer;text-decoration:underline;color:rgb(128,128,255);font-size:10pt">
+							<xp:this.rendered><![CDATA[#{javascript:var edit_action=context.getUrlParameter("action");
+				if(edit_action=="editDocument"){
+				return true;
+				}
+				else{
+				return false;
+				}}]]>
+							</xp:this.rendered>
+							<xp:eventHandler event="onclick"
+								submit="true" refreshMode="partial">
+								<xp:this.action>
+
+									<xp:actionGroup>
+										<xp:saveDocument
+											var="document1">
+										</xp:saveDocument>
+
+
+
+										<xp:openPage>
+											<xp:this.name><![CDATA[#{javascript:var doc_id = context.getUrlParameter("documentId");
+return "home.xsp?page=question_details&documentId="+doc_id;}]]></xp:this.name>
+										</xp:openPage>
+									</xp:actionGroup>
+								</xp:this.action>
+							</xp:eventHandler>
+						</xp:label>
+					</xp:td>
+				</xp:tr>
+			</xp:table>
+		</xp:div>
+		
+		<xp:inputRichText id="inputRichText1"
+			style="width: 95%;margin-left:3%; height:155px;overflow: scroll"
+			value="#{document1.description}">
+		</xp:inputRichText>
+		
+	
+	<xc:cc_replies></xc:cc_replies>
+	
+
+
+		
+		<xp:table
+			style="position: fixed; bottom:0; width:60%; background-color: #f2f2f2">
+			<xp:tr>
+
+				<xp:td style="">
+
+					<xp:inputText
+						style="border-radius:10px;margin-left:10px; height: 40px;width:97%"
+						id="comment">
+					</xp:inputText>
+				</xp:td>
+
+				<xp:td style="width:10px">
+					<xp:button value="Submit" id="button1"
+						style=" background-color: #b3e0ff; border : none;
+    height: 40px;
+    color: black; 
+    padding: 15px 32px;
+    border-radius:10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 9px;
+    cursor: pointer;
+		">
+
+
+
+					<xp:eventHandler event="onclick" submit="true"
+						refreshMode="complete">
+						<xp:this.action><![CDATA[#{javascript://var doc_id=context.getUrlParameter("documentId");
+//var reply_doc:NotesDocument=database.getDocumentByUNID(doc_id);
+var reply_data=getComponent("comment").getValue();
+document2.replaceItemValue("comment",reply_data);
+var str=@Name("[CN]", @UserName());
+var str1= str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+document2.replaceItemValue("replied_by",str1);
+document2.save();
+}]]></xp:this.action>
+					</xp:eventHandler></xp:button>
+				</xp:td>
+			</xp:tr>
+		</xp:table>
+	</xp:div>
+</xp:view>

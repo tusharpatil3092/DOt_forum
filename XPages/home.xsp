@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view style="overflow:hidden" xmlns:xp="http://www.ibm.com/xsp/core" pageTitle="DOt forum" xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xp:this.resources>
+		<xp:styleSheet href="home_css.css"></xp:styleSheet>
+		<xp:styleSheet href="/font-awesome-4.7.0/css/font-awesome.css"></xp:styleSheet>
+	</xp:this.resources>
+
+	<xp:div id="header" styleClass="header" style="font-size:18pt">
+		<xp:text styleClass="header_text" value="DOt forum"></xp:text>
+		<i class="fa fa-user-circle fa-lg" style="color: white; margin-top: 30px; margin-left: 65%; margin-right: 1%"></i>
+		<xp:text styleClass="logedin_info">
+			<xp:this.value><![CDATA[#{javascript:var str=@Name("[CN]", @UserName());
+                return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});}]]></xp:this.value>
+		</xp:text>
+		
+		<xp:link escape="true" text="logout" id="link1"
+			style="color:rgb(255,0,0);cursor:pointer;font-size:14pt;text-decoration:underline;margin-left:10.0px;margin-right:5.0px">
+			<xp:this.value><![CDATA[#{javascript:return facesContext.getExternalContext().getRequest().getContextPath() + '?Logout&redirectTo=' + facesContext.getExternalContext().getRequest().getContextPath();}]]></xp:this.value>
+		</xp:link>
+		<i class="fa fa-sign-out fa-0.7x" style="color: red"></i>
+	</xp:div>
+
+	<xp:div id="main_body" styleClass="main_body">
+		<xp:div styleClass="left">	
+			<xc:cc_left_navigation></xc:cc_left_navigation>
+		</xp:div>
+		<xp:div styleClass="center">
+			<xc:cc_chats>
+				<xc:this.rendered><![CDATA[#{javascript:var page=context.getUrlParameter("page");
+						if(page=="chats"){
+							return true;
+						}
+						else{
+							return false;
+						}}]]>	
+				</xc:this.rendered>
+			</xc:cc_chats>
+			<xc:cc_all_question>
+				<xc:this.rendered><![CDATA[#{javascript:var page=context.getUrlParameter("page");
+					if(page=="all_question"){
+					return true;
+					}
+					else{
+					return false;
+					}}]]>
+				</xc:this.rendered>
+			</xc:cc_all_question>
+			<xc:cc_my_question>
+				<xc:this.rendered><![CDATA[#{javascript:var page= context.getUrlParameter("page");
+					if(page == "my_question"){
+					return true;
+					}
+					else{
+					return false;
+					}}]]>
+				</xc:this.rendered>
+			</xc:cc_my_question>
+			<xc:cc_compose>
+				<xc:this.rendered><![CDATA[#{javascript:var page= context.getUrlParameter("page");
+					if(page == "compose"){
+					return true;
+					}
+					else{
+					return false;
+					}}]]></xc:this.rendered>
+			</xc:cc_compose>
+
+			<xc:cc_new_question autoRemove="false">
+				<xc:this.rendered><![CDATA[#{javascript:var page = context.getUrlParameter("page");
+					if(page == "new_question"){
+					return true;
+					}else{
+					return false;
+					}}]]>
+				</xc:this.rendered>
+			</xc:cc_new_question>
+			<xc:q_details autoRemove="false">
+				<xc:this.rendered>
+					<![CDATA[#{javascript:var page = context.getUrlParameter("page");
+						if(page == "question_details"){
+						return true;
+						}else{
+						return false;
+						}}]]>
+				</xc:this.rendered>
+			</xc:q_details>
+			<xc:cc_new_chat>
+				<xc:this.rendered><![CDATA[#{javascript:var n_ch=context.getUrlParameter("page");
+if(n_ch=="chat"){
+return true;
+}
+else{
+return false;
+}}]]></xc:this.rendered>
+			</xc:cc_new_chat>
+		</xp:div>
+			<xp:div styleClass="right">
+		</xp:div>
+	</xp:div>
+</xp:view>

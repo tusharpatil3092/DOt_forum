@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:div styleClass="nq_heading">	
+		<xp:label value="All Questions" id="label1"></xp:label>
+	</xp:div>
+
+	
+	<xp:repeat id="all_question_list" rows="30" var="question"
+		indexVar="i" first="0" style="overflow-y: scroll; height: 93.5%">
+		<xp:this.value>
+			<![CDATA[#{javascript:var v:NotesView=database.getView("questions");
+				var ve:NotesViewEntryCollection=v.getAllEntries();
+				return ve;}]]>
+		</xp:this.value>
+		<xp:div
+			style="background-color: #f2f2f2; width: 90%; height: 70px; margin-top: 10px; margin-left: 5%; border-radius: 10px; cursor: pointer;box-shadow: 10px 10px 20px #888888;"
+			id="div1">
+			<xp:br></xp:br>
+			<xp:label id="label3"
+				style="padding:30px; font-weight:bold; font-size:13pt">
+				<xp:this.value>
+					<![CDATA[#{javascript:var doc:NotesDocument=question.getDocument();
+						return doc.getItemValueString("title");}]]>
+				</xp:this.value>
+			</xp:label>
+			<xp:br></xp:br>
+			<xp:br></xp:br>
+			<xp:label value="Category:" id="label2"
+				style="padding:35px">
+			</xp:label>
+			<xp:text>
+				<xp:this.value>
+					<![CDATA[#{javascript:var doc:NotesDocument=question.getDocument();
+						return doc.getItemValueString("category");}]]>
+				</xp:this.value>
+			</xp:text>
+			<xp:div style="float:right; margin-right:5%">
+				<xp:label value="Author:" id="label4"></xp:label>
+				<xp:text style="margin-left:2px ">
+					<xp:this.value>
+						<![CDATA[#{javascript:var doc:NotesDocument=question.getDocument();
+							return doc.getItemValueString("created_by");}]]>
+					</xp:this.value>
+				</xp:text>
+			</xp:div>
+			
+		<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
+			<xp:this.action>
+				<xp:openPage>
+					<xp:this.name>
+						<![CDATA[#{javascript:var doc:NotesDocument=question.getDocument();
+								return "home.xsp?page=question_details&documentId="+doc.getUniversalID();}]]>
+					</xp:this.name>
+				</xp:openPage>
+			</xp:this.action></xp:eventHandler></xp:div>
+	</xp:repeat>
+
+</xp:view>

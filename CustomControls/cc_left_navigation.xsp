@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:table styleClass="table">
+		<xp:tr styleClass="tr1" id="tr1" style="cursor:pointer">
+			<xp:td>New Question
+				<xp:this.styleClass>
+					<![CDATA[#{javascript:var page=context.getUrlParameter("page");
+						if(page=="new_question"){
+						return "td1 selected";
+						}
+						else return "td1";}]]>
+				</xp:this.styleClass>
+			</xp:td>
+			<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
+				<xp:this.action>
+					<xp:openPage>
+						<xp:this.name><![CDATA[#{javascript:return "home.xsp?page=new_question"}]]></xp:this.name>
+					</xp:openPage>
+				</xp:this.action>
+			</xp:eventHandler>
+		</xp:tr>
+		<xp:tr styleClass="tr1" id="tr2" style="cursor:pointer">
+			<xp:td>
+				All Question
+				<xp:this.styleClass>
+					<![CDATA[#{javascript:var page=context.getUrlParameter("page");
+						if(page=="all_question" || page=="question_details"){
+						return "td1 selected";
+						}
+						else return "td1";}]]>
+				</xp:this.styleClass>
+			</xp:td>
+			<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
+				<xp:this.action>
+					<xp:openPage>
+						<xp:this.name><![CDATA[#{javascript:return "home.xsp?page=all_question"}]]></xp:this.name>
+					</xp:openPage>
+				</xp:this.action>
+			</xp:eventHandler>
+		</xp:tr>
+		<xp:tr styleClass="tr1" id="tr3" style="cursor:pointer">
+			<xp:td >My Question
+				<xp:this.styleClass>
+					<![CDATA[#{javascript:var page=context.getUrlParameter("page");
+						if(page=="my_question"){
+						return "td1 selected";
+						}
+						else return "td1";}]]>
+				</xp:this.styleClass>
+			</xp:td>
+			<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
+				<xp:this.action>
+					<xp:openPage>
+						<xp:this.name><![CDATA[#{javascript:return "home.xsp?page=my_question"}]]></xp:this.name>
+					</xp:openPage>
+				</xp:this.action>
+			</xp:eventHandler>
+		</xp:tr>
+		<xp:tr styleClass="tr1" id="tr4" style="cursor:pointer">
+			<xp:td >Chats
+				<xp:this.styleClass>
+					<![CDATA[#{javascript:var page=context.getUrlParameter("page");
+						if(page=="chats" || page=="chat"){
+						return "td1 selected";
+						}
+						else return "td1";}]]>
+				</xp:this.styleClass>
+			</xp:td>
+			<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
+				<xp:this.action>
+					<xp:openPage>
+						<xp:this.name><![CDATA[#{javascript:return "home.xsp?page=chats"}]]></xp:this.name>
+					</xp:openPage>
+				</xp:this.action>
+			</xp:eventHandler>
+		</xp:tr>
+		<xp:tr styleClass="tr1" id="tr5" style="cursor:pointer">
+			<xp:td >New Mail
+				<xp:this.styleClass>
+					<![CDATA[#{javascript:var page=context.getUrlParameter("page");
+						if(page=="compose"){
+						return "td1 selected";
+						}
+						else return "td1";}]]>
+				</xp:this.styleClass>
+			</xp:td>
+			<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
+				<xp:this.action>
+					<xp:openPage>
+						<xp:this.name><![CDATA[#{javascript:return "home.xsp?page=compose"}]]></xp:this.name>
+					</xp:openPage>
+				</xp:this.action>
+			</xp:eventHandler>
+		</xp:tr>
+	</xp:table>
+</xp:view>

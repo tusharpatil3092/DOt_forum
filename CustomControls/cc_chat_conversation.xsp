@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:repeat id="repeat1" rows="30" first="0" indexVar="j"
+		var="con">
+		<xp:this.value><![CDATA[#{javascript:var doc_id=context.getUrlParameter("documentId");
+var doc:NotesDocument=database.getDocumentByUNID(doc_id);
+var re:NotesDocumentCollection=doc.getResponses();
+return re;}]]></xp:this.value>
+<xp:div style="padding:3px;margin-top:10px;margin-bottom:2px">
+			<xp:text>
+				<xp:this.value><![CDATA[#{javascript:
+				var com=con.getItemValueString("pc_replies");
+				return com;}]]></xp:this.value>
+				<xp:this.styleClass><![CDATA[#{javascript:var replied_user=con.getItemValueString("pc_replied_by");
+	
+var str=@UserName();
+
+if(replied_user==str){
+return "right_msgs";
+}
+else{
+return "left_msgs1";
+}}]]></xp:this.styleClass>
+			</xp:text>
+	</xp:div>
+		<xp:br></xp:br>
+	</xp:repeat>
+	
+</xp:view>
