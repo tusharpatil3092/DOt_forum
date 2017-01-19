@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
- replicaid='652580AA001F918C'>
-<noteinfo noteid='242' unid='0E65BD33ED4007D1652580AA0032806C' sequence='1'>
+ replicaid='652580AA0035FF56'>
+<noteinfo noteid='15e' unid='0E65BD33ED4007D1652580AA0032806C' sequence='2'>
 <created><datetime>20170116T144136,76+0530</datetime></created>
-<modified><datetime>20170116T144136,79+0530</datetime></modified>
-<revised><datetime>20170116T144136,78+0530</datetime></revised>
-<lastaccessed><datetime>20170116T144136,79+0530</datetime></lastaccessed>
-<addedtofile><datetime>20170116T144136,79+0530</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=tushar jayawant patil/O=dot</name></updatedby>
-<wassignedby><name>CN=tushar jayawant patil/O=dot</name></wassignedby>
+<modified><datetime>20170116T152011,88+0530</datetime></modified>
+<revised><datetime>20170116T152011,87+0530</datetime></revised>
+<lastaccessed><datetime>20170116T152011,88+0530</datetime></lastaccessed>
+<addedtofile><datetime>20170116T152011,86+0530</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=avinash arvind kaushik/O=dot</name></updatedby>
+<wassignedby><name>CN=avinash arvind kaushik/O=dot</name></wassignedby>
 <item name='$FormulaClass' sign='true'><text>1</text></item>
 <item name='$TITLE' sign='true'><text>test</text></item>
 <item name='$Index' sign='true'><text/></item>

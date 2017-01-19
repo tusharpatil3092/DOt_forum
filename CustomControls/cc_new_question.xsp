@@ -2,7 +2,7 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core">
 
 	<xp:this.data>
-		<xp:dominoDocument var="document1" formName="question">
+		<xp:dominoDocument var="document1" formName="quest">
 		</xp:dominoDocument>
 	</xp:this.data>
 

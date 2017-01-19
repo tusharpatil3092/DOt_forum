@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note default='true' class='view' xmlns='http://www.lotus.com/dxl' version='9.0'
- maintenanceversion='1.0' replicaid='652580AA001F918C'>
-<noteinfo noteid='116' unid='018F8E690CD270F8652580AA001F9191' sequence='1'>
-<created><datetime>20170116T111448,81+0530</datetime></created>
-<modified><datetime>20170116T111448,84+0530</datetime></modified>
-<revised><datetime>20170116T111448,83+0530</datetime></revised>
-<lastaccessed><datetime>20170116T111448,84+0530</datetime></lastaccessed>
-<addedtofile><datetime>20170116T111448,84+0530</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=tushar jayawant patil/O=dot</name></updatedby>
+ maintenanceversion='1.0' replicaid='652580AA0035FF56'>
+<noteinfo noteid='116' unid='33D166A2A0AFF9E1652580AA0035FF61' sequence='1'>
+<created><datetime>20170116T151947,85+0530</datetime></created>
+<modified><datetime>20170116T151947,87+0530</datetime></modified>
+<revised><datetime>20170116T151947,86+0530</datetime></revised>
+<lastaccessed><datetime>20170116T151947,87+0530</datetime></lastaccessed>
+<addedtofile><datetime>20170116T151947,87+0530</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=avinash arvind kaushik/O=dot</name></updatedby>
 <item name='$TITLE'><text/></item>
 <item name='$Formula' summary='true'><formula compiled='true'>
 HAAFAA4ACgABAAQAJCQkJAQABAAAAAgAZgADAA==
