@@ -8,7 +8,7 @@
 	<xp:div id="header" styleClass="header" style="font-size:18pt">
 		<xp:text styleClass="header_text" value="DOt forum"></xp:text>
 		<i class="fa fa-user-circle fa-lg" style="color: white; margin-top: 30px; margin-left: 65%; margin-right: 1%"></i>
-		<xp:text styleClass="logedin_info">
+		<xp:text stylelass="logedin_info">
 			<xp:this.value><![CDATA[#{javascript:var str=@Name("[CN]", @UserName());
                 return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});}]]></xp:this.value>
 		</xp:text>
